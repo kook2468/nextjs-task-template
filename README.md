@@ -19,36 +19,25 @@ TailwindCSS, Zustand, React Query 등 실무에서 자주 사용되는 스택을
 
 ```plaintext
 src/
-┣ assets/     # 정적 리소스
-┣ components/ # 공통 UI 컴포넌트
-┣ features/   # 도메인별 기능 모듈 (ex. community, product)
-┣ hooks/      # 커스텀 훅
-┣ services/   # API 요청 및 비즈니스 로직
-┣ stores/     # 전역 상태 관리
-┣ types/      # 전역 타입 정의
-┣ App.tsx     # 앱 전체 구조 설정
-┗ main.tsx    # 애플리케이션 진입점
-
-src/
-┣ app/                        # App Router 페이지 구조
-┃ ┣ layout.tsx                # 루트 Layout (Provider, 공통 레이아웃)
-┃ ┣ page.tsx                  # 홈 페이지
-┃ ┗ (routes)/                 # 라우팅 그룹 디렉토리
-┣ components/                 # 공통 UI 컴포넌트
-┃ ┗ ui/                       # 디자인 시스템 기반 구성
-┣ features/                   # 도메인별 기능 단위 (예: community, product)
+┣ app/                   # App Router 페이지 구조
+┃ ┣ layout.tsx           # 루트 Layout (Provider, 공통 레이아웃)
+┃ ┣ page.tsx             # 홈 페이지
+┃ ┗ (routes)/            # 라우팅 그룹 디렉토리
+┣ components/            # 공통 UI 컴포넌트
+┃ ┗ ui/                  # 디자인 시스템 기반 구성
+┣ features/              # 도메인별 기능 단위 (예: community, product)
 ┃ ┗ community/
 ┃   ┣ components/
 ┃   ┣ hooks/
 ┃   ┣ api.ts
 ┃   ┗ types.ts
-┣ stores/                     # Zustand 전역 상태
-┣ hooks/                      # 공통 커스텀 훅
-┣ services/                   # Axios 인스턴스 등 API 유틸
-┣ types/                      # 전역 타입
-┣ styles/                     # Tailwind 및 전역 스타일
-┣ constants/                  # 상수 모음
-┗ utils/                      # 공통 유틸 함수
+┣ stores/                # Zustand 전역 상태
+┣ hooks/                 # 공통 커스텀 훅
+┣ services/              # Axios 인스턴스 등 API 유틸
+┣ types/                 # 전역 타입
+┣ styles/                # Tailwind 및 전역 스타일
+┣ constants/             # 상수 모음
+┗ utils/                 # 공통 유틸 함수
 ```
 
 ## 🌿 브랜치 전략
