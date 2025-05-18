@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nextjs-task-template
 
-## Getting Started
+Next.js(App Router) 기반의 프론트엔드 과제 템플릿입니다.  
+TailwindCSS, Zustand, React Query 등 실무에서 자주 사용되는 스택을 미리 구성하여 빠르게 개발을 시작할 수 있습니다.
 
-First, run the development server:
+## 🚀 기술 스택
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+| 범주             | 사용 기술                         |
+| ---------------- | --------------------------------- |
+| 기본 세팅        | Next.js (App Router) + TypeScript |
+| 스타일링         | TailwindCSS                       |
+| 상태관리         | Zustand                           |
+| 데이터 패칭/캐싱 | React Query                       |
+| HTTP 통신        | Axios                             |
+| 라우팅           | App Router                        |
+| 배포             | Vercel                            |
+
+## 📁 폴더 구조
+
+```plaintext
+src/
+┣ assets/     # 정적 리소스
+┣ components/ # 공통 UI 컴포넌트
+┣ features/   # 도메인별 기능 모듈 (ex. community, product)
+┣ hooks/      # 커스텀 훅
+┣ services/   # API 요청 및 비즈니스 로직
+┣ stores/     # 전역 상태 관리
+┣ types/      # 전역 타입 정의
+┣ App.tsx     # 앱 전체 구조 설정
+┗ main.tsx    # 애플리케이션 진입점
+
+src/
+┣ app/                        # App Router 페이지 구조
+┃ ┣ layout.tsx                # 루트 Layout (Provider, 공통 레이아웃)
+┃ ┣ page.tsx                  # 홈 페이지
+┃ ┗ (routes)/                 # 라우팅 그룹 디렉토리
+┣ components/                 # 공통 UI 컴포넌트
+┃ ┗ ui/                       # 디자인 시스템 기반 구성
+┣ features/                   # 도메인별 기능 단위 (예: community, product)
+┃ ┗ community/
+┃   ┣ components/
+┃   ┣ hooks/
+┃   ┣ api.ts
+┃   ┗ types.ts
+┣ stores/                     # Zustand 전역 상태
+┣ hooks/                      # 공통 커스텀 훅
+┣ services/                   # Axios 인스턴스 등 API 유틸
+┣ types/                      # 전역 타입
+┣ styles/                     # Tailwind 및 전역 스타일
+┣ constants/                  # 상수 모음
+┗ utils/                      # 공통 유틸 함수
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌿 브랜치 전략
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+이 프로젝트는 다음과 같은 브랜치 구조 및 명명 규칙을 따릅니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📌 기본 브랜치
 
-## Learn More
+| 브랜치명  | 설명                       |
+| --------- | -------------------------- |
+| `main`    | 최종 제출 및 배포용 브랜치 |
+| `develop` | 기능 개발 통합 브랜치      |
 
-To learn more about Next.js, take a look at the following resources:
+### 🛠️ 작업 브랜치 규칙
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| 타입      | 네이밍 예시             | 설명                            |
+| --------- | ----------------------- | ------------------------------- |
+| 초기 세팅 | `chore/init-project`    | 프로젝트 세팅 및 공통 구조 구성 |
+| 기능 구현 | `feat/community-list`   | 기능별 도메인 구현              |
+| 제출 준비 | `release/final-cleanup` | 제출 전 코드 정리 및 리팩터링   |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 사용법
 
-## Deploy on Vercel
+```bash
+# 의존성 설치
+npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 개발 서버 실행
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 빌드
+npm run build
+```
+
+## 🌐 배포
+
+Vercel을 통해 자동 배포됩니다.
+main 브랜치에 머지 시 production 배포가 트리거됩니다.
