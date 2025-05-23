@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Orbitron } from "next/font/google";
 import "./globals.css";
 import { Provider } from "@/app/providers";
+import { ThemeToggleButton } from "@/shared/components/ui/ThemeToggle";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Provider>{children}</Provider>
+    <html lang="en" className={`${geist.variable} ${orbitron.variable}`}>
+      <body className="font-sans antialiased">
+        <Provider>
+          <nav className="flex justify-end px-4 py-2">
+            <ThemeToggleButton />
+          </nav>
+          {children}
+        </Provider>
       </body>
     </html>
   );
